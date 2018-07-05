@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.kgh.card.bean.Card;
 import com.kgh.card.bean.Player;
 
@@ -16,13 +19,15 @@ public class Cards {
 
 	private List<Card> cards;
 
+	private static final Logger logger = LoggerFactory.getLogger(Cards.class);
+
 	public Cards(int n) {
 		cards = new LinkedList<>();
 
 		for (int i = 0; i < n; i++) {
+			cards.add(new Card("w", 0, 14));
+			cards.add(new Card("W", 0, 15));
 			for (int k = 0; k < 4; k++) {
-				cards.add(new Card("w", k, 14));
-				cards.add(new Card("W", k, 15));
 				for (int j = 0; j < CARDS.length; j++) {
 					String name = CARDS[j];
 					cards.add(new Card(name, k, j));
@@ -42,18 +47,22 @@ public class Cards {
 		for (int i = 0; i < cardNum; i++) {
 			for (Player player : players) {
 				String name = player.getName();
-				List<Card> cards = result.get(name);
-				if (cards == null) {
-					cards = new ArrayList<>();
+				List<Card> cs = result.get(name);
+				if (cs == null) {
+					cs = new ArrayList<>();
+					result.put(name, cs);
 				}
-				cards.add(cards.remove(r.nextInt(cards.size())));
+				int index = r.nextInt(cards.size());
+				cs.add(cards.remove(index));
 			}
 		}
 
-		// ����
-		for(Player p : players) {
+		// 给玩家发牌
+		for (Player p : players) {
 			String name = p.getName();
-			p.getPlay().init(result.get(name));
+			List<Card> pcards = result.get(name);
+			logger.debug("发给 " + name + " 的牌的数量为： " + pcards.size() + " 牌为：" + pcards);
+			p.getPlay().init(pcards);
 		}
 		return result;
 	}

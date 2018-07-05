@@ -3,7 +3,7 @@ package com.kgh.card.bean;
 import com.kgh.card.userinterface.Play;
 
 /**
- * Íæ¼ÒĞÅÏ¢
+ * ç©å®¶
  * 
  * @author lenovo
  *
@@ -50,9 +50,16 @@ public class Player {
 			if (obj != null && obj instanceof Play) {
 				return (Play) obj;
 			}
-			throw new RuntimeException("ÊµÀı»¯Íæ¼ÒÊ§°Ü£¬ÇëÊµÏÖ Play ½Ó¿Ú£¡");
+			throw new RuntimeException("åˆå§‹åŒ–ç©å®¶å¤±è´¥ï¼Œå¿…é¡»è¦å®ç° Play æ¥å£");
 		} catch (Exception e) {
-			throw new RuntimeException("ÊµÀı»¯Íæ¼ÒÊ§°Ü  " + className, e);
+			throw new RuntimeException("åˆå§‹åŒ–ç©å®¶å¤±è´¥ " + className, e);
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Player [name=" + name + ", className=" + className + ", play=" + play + "]";
+	}
+	
+	
 }
