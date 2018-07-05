@@ -5,6 +5,10 @@
 		{
 			"name": "hello",
 			"className": "com.kgh.card.example.Kgh"
+		},
+		{
+			"name": "world",
+			"className": "com.kgh.card.example.Kgh"
 		}
 	]
 }

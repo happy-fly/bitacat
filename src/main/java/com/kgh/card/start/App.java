@@ -60,25 +60,33 @@ public class App {
 
 		// 开始
 		List<Card> previous = null;
-		while (!succeed()) {
+		String previousName = "";
+		while (true) {
 			for (Player p : players) {
 				String name = p.getName();
-				List<Card> current = p.getPlay().send(previous);
+				List<Card> current = p.getPlay().send(previousName, previous);
 				Resp sp = validate.validate(current, previous);
 				while (sp == null || Code.SUCCESS != sp.getCode()) {
 					p.getPlay().succeed(-1, "");
-					current = p.getPlay().send(previous);
+					current = p.getPlay().send(previousName, previous);
 					sp = validate.validate(current, previous);
 				}
 				p.getPlay().succeed(0, "");
 				System.out.println(name + " 发牌  " + current);
 				playerCards.get(name).removeAll(current); // 移除当前发的牌
-				previous = current;
+				
+				if(current != null && current.size() > 0) {
+					previous = current;
+					previousName = name;
+				}
+			
+				if(succeed(p)) {
+					System.out.println(p.getName() + " 获胜！");
+					System.exit(0);
+				}
 			}
 		}
 
-		// 结束
-		System.out.println("Game Over");
 	}
 
 	/**
@@ -103,8 +111,14 @@ public class App {
 		}
 	}
 
-	private boolean succeed() {
-		return false;
+	/**
+	 * 判断是否胜利
+	 * 
+	 * @param p 玩家
+	 * @return
+	 */
+	private boolean succeed(Player p) {
+		return playerCards.get(p.getName()).size() == 0;
 	}
 
 	/**

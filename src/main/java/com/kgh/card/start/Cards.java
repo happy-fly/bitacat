@@ -44,7 +44,7 @@ public class Cards {
 
 		int cardNum = cards.size();
 		Random r = new Random();
-		for (int i = 0; i < cardNum; i++) {
+		for (int i = 0; i < cardNum/players.size(); i++) {
 			for (Player player : players) {
 				String name = player.getName();
 				List<Card> cs = result.get(name);

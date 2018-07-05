@@ -4,17 +4,20 @@ import java.util.List;
 
 import com.kgh.card.bean.Card;
 import com.kgh.card.bean.Resp;
+import com.kgh.card.constant.Code;
 
 public class GeneralValidate implements Validate {
 
 	@Override
 	public Resp validate(List<Card> current, List<Card> previous) {
-		return null;
+		Resp resp = new Resp(Code.SUCCESS);
+		return resp;
 	}
 
 	@Override
 	public Resp players(int num) {
-		return null;
+		Resp resp = new Resp(Code.SUCCESS);
+		return resp;
 	}
 
 }

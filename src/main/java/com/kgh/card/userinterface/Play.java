@@ -22,10 +22,10 @@ public interface Play {
 	/**
 	 * 发牌
 	 * 
-	 * @param previous 上一家的发的牌
+	 * @param previous 上一家的发的牌,如果上
 	 * @return
 	 */
-	List<Card> send(List<Card> previous);
+	List<Card> send(String name, List<Card> previous);
 	
 	/**
 	 * 发牌是否成功
