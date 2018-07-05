@@ -1,0 +1,10 @@
+{
+	"playRule": "com.kgh.card.game.GeneralValidate",
+	"cardNum": 2,
+	"players": [
+		{
+			"name": "hello",
+			"className": "com.kgh.card.example.Kgh"
+		}
+	]
+}
