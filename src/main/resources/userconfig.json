@@ -1,14 +1,14 @@
 {
-	"playRule": "com.kgh.card.game.GeneralValidate",
+	"playRule": "com.kgh.card.core.rule.GeneralValidate",
 	"cardNum": 2,
 	"players": [
 		{
 			"name": "hello",
-			"className": "com.kgh.card.example.Kgh"
+			"className": "com.kgh.card.ext.player.Kgh"
 		},
 		{
 			"name": "world",
-			"className": "com.kgh.card.example.Kgh"
+			"className": "com.kgh.card.ext.player.Kgh"
 		}
 	]
 }
