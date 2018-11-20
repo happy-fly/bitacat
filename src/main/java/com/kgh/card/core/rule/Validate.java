@@ -3,7 +3,7 @@ package com.kgh.card.core.rule;
 import java.util.List;
 
 import com.kgh.card.core.bean.Card;
-import com.kgh.card.core.bean.Resp;
+import com.kgh.card.core.bean.Message;
 
 /**
  * 玩法规则校验
@@ -19,7 +19,7 @@ public interface Validate {
 	 * @param num
 	 * @return
 	 */
-	Resp players(int num);
+	Message players(int num);
 
 	/**
 	 * 发牌校验
@@ -28,5 +28,5 @@ public interface Validate {
 	 * @param previous
 	 * @return
 	 */
-	Resp validate(List<Card> current, List<Card> previous);
+	Message validate(List<Card> current, List<Card> previous);
 }

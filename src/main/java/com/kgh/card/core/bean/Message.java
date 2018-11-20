@@ -1,6 +1,6 @@
 package com.kgh.card.core.bean;
 
-public class Resp {
+public class Message {
 
 	private int code;
 	private String msg;
@@ -35,25 +35,25 @@ public class Resp {
 		return "Response [code=" + code + ", msg=" + msg + ", data=" + data + "]";
 	}
 
-	public Resp(int code, String msg, Object data) {
+	public Message(int code, String msg, Object data) {
 		super();
 		this.code = code;
 		this.msg = msg;
 		this.data = data;
 	}
 
-	public Resp(int code, String msg) {
+	public Message(int code, String msg) {
 		super();
 		this.code = code;
 		this.msg = msg;
 	}
 
-	public Resp(int code) {
+	public Message(int code) {
 		super();
 		this.code = code;
 	}
 
-	public Resp() {
+	public Message() {
 		super();
 	}
 
