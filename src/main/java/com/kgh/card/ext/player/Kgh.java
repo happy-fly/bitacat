@@ -1,4 +1,4 @@
-package com.kgh.card.example;
+package com.kgh.card.ext.player;
 
 import java.util.List;
 
