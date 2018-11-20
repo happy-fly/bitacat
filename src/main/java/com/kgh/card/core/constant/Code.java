@@ -1,4 +1,4 @@
-package com.kgh.card.constant;
+package com.kgh.card.core.constant;
 
 public class Code {
 

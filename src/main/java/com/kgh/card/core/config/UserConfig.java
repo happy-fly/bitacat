@@ -1,13 +1,13 @@
-package com.kgh.card.config;
+package com.kgh.card.core.config;
 
 import java.util.List;
 
-import com.kgh.card.bean.Player;
+import com.kgh.card.core.bean.Player;
 
 /**
  * 玩家配置
  * 
- * @author lenovo
+ * @author 孔冠华
  *
  */
 public class UserConfig {

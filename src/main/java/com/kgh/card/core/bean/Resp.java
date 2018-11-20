@@ -1,4 +1,4 @@
-package com.kgh.card.bean;
+package com.kgh.card.core.bean;
 
 public class Resp {
 

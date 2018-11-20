@@ -1,4 +1,4 @@
-package com.kgh.card.start;
+package com.kgh.card.core.bean;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,9 +9,6 @@ import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.kgh.card.bean.Card;
-import com.kgh.card.bean.Player;
 
 public class Cards {
 

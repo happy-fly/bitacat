@@ -1,9 +1,9 @@
-package com.kgh.card.game;
+package com.kgh.card.core.rule;
 
 import java.util.List;
 
-import com.kgh.card.bean.Card;
-import com.kgh.card.bean.Resp;
+import com.kgh.card.core.bean.Card;
+import com.kgh.card.core.bean.Resp;
 
 /**
  * 玩法规则校验

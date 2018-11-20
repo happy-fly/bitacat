@@ -1,8 +1,8 @@
-package com.kgh.card.userinterface;
+package com.kgh.card;
 
 import java.util.List;
 
-import com.kgh.card.bean.Card;
+import com.kgh.card.core.bean.Card;
 
 /**
  * 玩家需要实现这个接口，并对接口中的方法进行实现

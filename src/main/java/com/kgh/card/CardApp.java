@@ -1,4 +1,4 @@
-package com.kgh.card.start;
+package com.kgh.card;
 
 import java.util.List;
 import java.util.Map;
@@ -8,25 +8,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSONObject;
-import com.kgh.card.bean.Card;
-import com.kgh.card.bean.Player;
-import com.kgh.card.bean.Resp;
-import com.kgh.card.config.UserConfig;
-import com.kgh.card.constant.Code;
-import com.kgh.card.game.GeneralValidate;
-import com.kgh.card.game.Validate;
-import com.kgh.card.utils.FileUtils;
+import com.kgh.card.core.bean.Card;
+import com.kgh.card.core.bean.Cards;
+import com.kgh.card.core.bean.Player;
+import com.kgh.card.core.bean.Resp;
+import com.kgh.card.core.config.UserConfig;
+import com.kgh.card.core.constant.Code;
+import com.kgh.card.core.rule.GeneralValidate;
+import com.kgh.card.core.rule.Validate;
+import com.kgh.card.core.utils.FileUtils;
 
-public class App {
+public class CardApp {
 
 	private Map<String, List<Card>> playerCards;
 	private Validate validate;
 	private UserConfig userConfig;
 	
-	private static final Logger logger = LoggerFactory.getLogger(App.class);
+	private static final Logger logger = LoggerFactory.getLogger(CardApp.class);
 
 	public static void main(String[] args) {
-		new App().start();
+		new CardApp().start();
 	}
 
 	private void start() {

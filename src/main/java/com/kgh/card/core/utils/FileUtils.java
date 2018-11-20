@@ -1,4 +1,4 @@
-package com.kgh.card.utils;
+package com.kgh.card.core.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

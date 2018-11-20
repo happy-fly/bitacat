@@ -6,9 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
-import com.kgh.card.bean.Card;
-import com.kgh.card.constant.Code;
-import com.kgh.card.userinterface.Play;
+import com.kgh.card.Play;
+import com.kgh.card.core.bean.Card;
+import com.kgh.card.core.constant.Code;
 
 public class Kgh implements Play {
 	
