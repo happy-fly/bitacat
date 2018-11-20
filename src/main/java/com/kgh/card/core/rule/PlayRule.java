@@ -11,7 +11,7 @@ import com.kgh.card.core.bean.Message;
  * @author lenovo
  *
  */
-public interface Validate {
+public interface PlayRule {
 
 	/**
 	 * 人数校验

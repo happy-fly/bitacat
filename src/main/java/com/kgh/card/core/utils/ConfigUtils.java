@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringUtils;
 import com.alibaba.fastjson.JSONObject;
 import com.kgh.card.core.config.UserConfig;
 import com.kgh.card.core.rule.GeneralValidate;
-import com.kgh.card.core.rule.Validate;
+import com.kgh.card.core.rule.PlayRule;
 
 /**
  * 配置工具类
@@ -32,15 +32,15 @@ public class ConfigUtils {
 	 * @param userConfig
 	 * @return
 	 */
-	public static Validate getValidate(UserConfig userConfig) {
+	public static PlayRule getValidate(UserConfig userConfig) {
 		String playRule = userConfig.getPlayRule();
 		if (StringUtils.isBlank(playRule)) {
 			return new GeneralValidate();
 		}
 		try {
 			Object obj = Class.forName(playRule).newInstance();
-			if (obj instanceof Validate) {
-				return (Validate) obj;
+			if (obj instanceof PlayRule) {
+				return (PlayRule) obj;
 			}
 			throw new RuntimeException("指定了错误的规则！" + playRule);
 		} catch (Exception e) {

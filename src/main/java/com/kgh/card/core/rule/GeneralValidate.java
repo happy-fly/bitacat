@@ -12,7 +12,7 @@ import com.kgh.card.core.constant.Code;
  * @author 孔冠华
  *
  */
-public class GeneralValidate implements Validate {
+public class GeneralValidate implements PlayRule {
 
 	@Override
 	public Message validate(List<Card> current, List<Card> previous) {

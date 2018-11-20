@@ -12,7 +12,7 @@ import com.kgh.card.core.bean.Player;
 import com.kgh.card.core.bean.Message;
 import com.kgh.card.core.config.UserConfig;
 import com.kgh.card.core.constant.Code;
-import com.kgh.card.core.rule.Validate;
+import com.kgh.card.core.rule.PlayRule;
 import com.kgh.card.core.utils.ConfigUtils;
 
 public class CardEngine {
@@ -23,7 +23,7 @@ public class CardEngine {
 	private Map<String, List<Card>> playerCards;
 
 	// 当前的玩法
-	private Validate validate;
+	private PlayRule validate;
 
 	// 用户配置
 	private UserConfig userConfig;
