@@ -7,16 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.kgh.card.core.bean.Card;
-import com.kgh.card.core.bean.Cards;
-import com.kgh.card.core.bean.Player;
 import com.kgh.card.core.bean.Message;
+import com.kgh.card.core.bean.Player;
+import com.kgh.card.core.bean.RuleConfig;
 import com.kgh.card.core.config.UserConfig;
 import com.kgh.card.core.constant.Code;
 import com.kgh.card.core.rule.PlayRule;
 import com.kgh.card.core.utils.ConfigUtils;
 
 public class CardEngine {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(CardEngine.class);
 
 	// 玩家手中持有的牌
@@ -38,7 +38,7 @@ public class CardEngine {
 
 		// 初始化游戏玩法
 		validate = ConfigUtils.getValidate(userConfig);
-		
+
 		// 初始化配置完成，开始游戏
 		start();
 	}
@@ -58,13 +58,13 @@ public class CardEngine {
 		}
 
 		// 初始化牌
-		Cards cards = new Cards(userConfig.getCardNum());
+		validate.init(new RuleConfig().setCardNum(userConfig.getCardNum()));
 
 		logger.info(
 				"游戏初始化成功，游戏规则为：" + validate.getClass() + " 游戏人数：" + players.size() + " 牌数：" + userConfig.getCardNum());
 
 		// 系统发牌
-		playerCards = cards.send(players);
+		playerCards = validate.handOut(players);
 
 		// 开始
 		List<Card> previous = null;
@@ -96,11 +96,12 @@ public class CardEngine {
 		}
 
 	}
-	
+
 	/**
 	 * 判断是否胜利
 	 * 
-	 * @param p 玩家
+	 * @param p
+	 *            玩家
 	 * @return
 	 */
 	private boolean succeed(Player p) {
