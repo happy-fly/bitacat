@@ -3,11 +3,19 @@
 	"cardNum": 2,
 	"players": [
 		{
-			"name": "hello",
+			"name": "小明",
 			"className": "com.kgh.card.ext.player.Kgh"
 		},
 		{
-			"name": "world",
+			"name": "小华",
+			"className": "com.kgh.card.ext.player.Kgh"
+		},
+		{
+			"name": "小赵",
+			"className": "com.kgh.card.ext.player.Kgh"
+		},
+		{
+			"name": "小红",
 			"className": "com.kgh.card.ext.player.Kgh"
 		}
 	]
