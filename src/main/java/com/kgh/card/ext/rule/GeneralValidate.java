@@ -70,7 +70,7 @@ public class GeneralValidate implements PlayRule {
 			String name = p.getName();
 			List<Card> pcards = result.get(name);
 			logger.debug("发给 " + name + " 的牌的数量为： " + pcards.size() + " 牌为：" + pcards);
-			p.getPlay().init(pcards);
+			p.getPlay().init(name, pcards);
 		}
 		return result;
 	}

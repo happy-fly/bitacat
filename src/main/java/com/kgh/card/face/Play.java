@@ -17,7 +17,7 @@ public interface Play {
 	 * 
 	 * @param cards
 	 */
-	void init(List<Card> cards);
+	void init(String name, List<Card> cards);
 	
 	/**
 	 * 发牌
