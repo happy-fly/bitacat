@@ -111,7 +111,7 @@ public class SwingUI extends JFrame implements UI {
      */
     private void sleep() {
         try {
-            Thread.sleep(100);
+            Thread.sleep(800);
         } catch (Exception e) {
             e.printStackTrace();
         }
