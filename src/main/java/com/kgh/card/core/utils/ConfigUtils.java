@@ -1,10 +1,11 @@
 package com.kgh.card.core.utils;
 
+import com.kgh.card.core.config.SysConfig;
 import org.apache.commons.lang.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.kgh.card.core.config.UserConfig;
-import com.kgh.card.core.rule.GeneralValidate;
+import com.kgh.card.ext.rule.GeneralValidate;
 import com.kgh.card.core.rule.PlayRule;
 
 /**
@@ -16,7 +17,9 @@ import com.kgh.card.core.rule.PlayRule;
 public class ConfigUtils {
 	
 	private static final String user_config_file = "userconfig.json";
-	
+
+	private static final String sys_config_file = "system.json";
+
 	/**
 	 * 读取用户配置，并封装成为 UserConfig
 	 * 
@@ -46,5 +49,14 @@ public class ConfigUtils {
 		} catch (Exception e) {
 			throw new RuntimeException("指定的规则不存在！", e);
 		}
+	}
+
+	/**
+	 * 读取系统配置，并封装成为 SysConfig
+	 *
+	 * @return
+	 */
+	public static SysConfig getSysConfig() {
+		return JSONObject.parseObject(FileUtils.readFile(sys_config_file), SysConfig.class);
 	}
 }

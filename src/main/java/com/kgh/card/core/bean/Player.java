@@ -1,6 +1,6 @@
 package com.kgh.card.core.bean;
 
-import com.kgh.card.Play;
+import com.kgh.card.face.Play;
 
 /**
  * 玩家

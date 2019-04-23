@@ -1,5 +1,5 @@
 {
-	"playRule": "com.kgh.card.core.rule.GeneralValidate",
+	"playRule": "com.kgh.card.ext.rule.GeneralValidate",
 	"cardNum": 2,
 	"players": [
 		{
