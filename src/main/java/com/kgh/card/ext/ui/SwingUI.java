@@ -8,6 +8,8 @@ import com.kgh.card.core.ui.UI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,21 +20,35 @@ import java.util.stream.Collectors;
  * @version 1.0
  * @date 2019/4/23 18:09
  */
-public class SwingUI extends JFrame implements UI {
+public class SwingUI extends JFrame implements UI, ActionListener {
 
     private JPanel mainPanel;
+    private JPanel titlePanel;
     private JPanel playerPanel;
     private JTextArea displayArea;
     private JTextArea playerArea;
+    private JButton startButton;
     private Map<String, JButton> players = new HashMap<>();
+    private SwingUI that;
 
     public SwingUI() {
         this.setTitle("浪曦云对战平台");
         this.setBounds(200, 200, 1000, 600);
         this.setLayout(new BorderLayout());
+        this.that = this;
+
+        titlePanel = new JPanel();
+        JLabel title = new JLabel("浪曦对战平台");
+        title.setFont(new Font("Monospaced", Font.PLAIN, 44));
+        titlePanel.add(title);
+        this.add(titlePanel, BorderLayout.NORTH);
 
         mainPanel = new JPanel();
         mainPanel.setBackground(Color.BLACK);
+
+        startButton = new JButton("开始");
+        startButton.addActionListener(this);
+        mainPanel.add(startButton);
 
         playerArea = new JTextArea("玩家");
         playerArea.setFont(new Font("Monospaced", Font.PLAIN, 44));
@@ -60,6 +76,9 @@ public class SwingUI extends JFrame implements UI {
 
     @Override
     public void init(UserConfig userConfig) {
+        waiting();
+
+        // 展示玩家
         int playersCount = userConfig.getPlayers().size();
         for (int i = 0; i < playersCount; i++) {
             JButton btnNewButton_1 = new JButton(userConfig.getPlayers().get(i).getName());
@@ -111,13 +130,13 @@ public class SwingUI extends JFrame implements UI {
      */
     private void sleep() {
         try {
-            Thread.sleep(800);
+            Thread.sleep(100);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void waiting() {
+    private synchronized void waiting() {
         try {
             wait();
         } catch (Exception e) {
@@ -134,5 +153,11 @@ public class SwingUI extends JFrame implements UI {
                 players.get(name).setForeground(Color.BLACK);
             }
         });
+    }
+
+    @Override
+    public synchronized void actionPerformed(ActionEvent e) {
+        notifyAll();
+        mainPanel.remove(startButton);
     }
 }
