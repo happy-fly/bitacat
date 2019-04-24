@@ -1,6 +1,8 @@
 package com.kgh.card.ext.player;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +47,7 @@ public class Kgh implements Play {
         if (n == 1) {
             Card card = previous.get(0);
             Card m = getGreater(card);
+            // 这里很重要，需要判断前面最大的牌是不是自己发的，如果是自己发的，则选出一个最小的值
             if (m == null && name.equals(this.name)) {
                 m = getGreater(new Card("0", 0, -100));
             }
@@ -61,17 +64,18 @@ public class Kgh implements Play {
      * @return
      */
     private Card getGreater(Card card) {
-
         if (card == null) {
             card = new Card(null, 1, -1);
         }
-        for (Card c : myCards) {
-            int n = c.getPosition();
-            if (n > card.getPosition()) {
-                return c;
-            }
-        }
-        return null;
+
+        Card temp = card;
+
+        return myCards
+                .stream()
+                .filter(c -> c.getPosition() > temp.getPosition())
+                .sorted(Comparator.comparing(Card::getPosition))
+                .findFirst().orElse(null);
+
     }
 
     @Override

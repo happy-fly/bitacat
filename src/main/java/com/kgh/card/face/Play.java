@@ -5,7 +5,9 @@ import java.util.List;
 import com.kgh.card.core.bean.Card;
 
 /**
- * 玩家需要实现这个接口，并对接口中的方法进行实现
+ * 玩家需要实现这个接口，并对接口中的方法进行实现。
+ *
+ * 游戏过程中，对每个玩家实例化单个实例
  * 
  * @author lenovo
  *
